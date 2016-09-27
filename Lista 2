@@ -133,3 +133,31 @@ int main(){
 	
 	return 0;	
 }
+10)
+
+#include <stdio.h>
+#include <math.h>
+int main(){
+    float a,b,c,delta,raiz_delta,x1,x2;
+    printf("Digite os coeficientes: ");
+    scanf("%f %f %f",&a,&b,&c);
+    if ( a!=0){
+    delta = (b* b) - 4 * a *c;
+    raiz_delta = sqrt(delta);
+         if (delta <0)
+          printf ("Nao existe raiz");
+          if (delta == 0)
+           x1= - b /(2*a);
+           printf ("2 raizes iguais a %.2f",x1);
+           if (delta > 0)
+            x1 =( -b + raiz_delta )/2 *a;
+            x2 =(-b - raiz_delta) / 2 *a;
+             printf ("As raizes sao diferentes raiz1 = %.2f e raiz2 = %.2f\n",x1,x2);
+        }
+    else {
+        printf("A Equacao nao e do 2 grau");
+    }
+   
+     
+  return 0;  
+}
