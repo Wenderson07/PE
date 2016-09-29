@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main(){
+    int x,y;
+    printf("Digite respectivamente os valores de x e y\n");
+    scanf("%d %d",&x,&y);
+    if (x == 0 && y == 0)
+    printf("O ponto esta na origem");
+    else if (x >0 && y == 0)
+    printf("O ponto esta no eixo x");
+    else if (x == 0 && y >0)
+    printf("O ponto esta no eixo y");
+    else if (x >0 && y >0 )
+    printf("O ponto esta no 1 quadrante ");
+       else if (x < 0 && y >0 )
+    printf("O ponto esta no 2 quadrante ");
+    else if (x <0 && y <0 )
+    printf("O ponto esta no 3 quadrante ");
+    
+       else if (x >0 && y < 0 )
+    printf("O ponto esta no 4 quadrante ");
+    return 0;
+      
+}
