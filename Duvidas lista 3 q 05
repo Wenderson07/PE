@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main(){
+	int peso,mg;
+	float idade,gotas;
+	gotas =0.04; // 0.002  * 20  (1 mg /500* 20 gotas) = 0.04 //
+	printf("Digite a idade e o peso: ");
+	scanf("%f %f",&idade,&peso);
+	if (idade >= 12){
+		if(peso >= 60)
+			printf ("A dosagem do remedio deve ser de %.1f gotas", gotas * 1000);
+		else
+			printf ("A dosagem do remedio deve ser de %.1f gotas",gotas* 875);}
+	if(idade < 12){
+		if(peso >= 5 && peso <=9)
+			printf ("A dosagem do remedio deve ser de %.1f gotas",gotas* 125);
+		if(peso > 9 && peso <=16)
+			printf ("A dosagem do remedio deve ser de %.1f gotas",250*gotas);
+		if(peso > 16 && peso <=24)
+			printf ("A dosagem do remedio deve ser de %.1f gotas",375 *gotas);
+		if(peso > 24 && peso <=30)
+			printf ("A dosagem do remedio deve ser de %.1f gotas",500 *gotas);
+		else{
+			printf ("A dosagem do remedio deve ser de %.1d gotas",725 *gotas);	}}	
+	
+	return 0;
+}
