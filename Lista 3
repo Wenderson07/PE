@@ -1,3 +1,26 @@
+1)#include <stdio.h>
+int main(){
+	int Valor_inicial,Valor_final,u,d,c,m;
+	
+	printf("Digite um numero de 4 digitos: ");
+	scanf("%d",&Valor_inicial);
+	
+	m = Valor_inicial / 1000;
+	c = Valor_inicial % 1000 / 100;
+	d = Valor_inicial % 100 / 10; 
+	u = Valor_inicial % 10;
+	Valor_final = (u * 1000) + (d * 100) + (c * 10) + m;
+	
+	printf("%d",Valor_final);
+	
+	return 0;	
+}
+
+
+
+
+
+
 4)
 #include <stdio.h>
 int main(){
