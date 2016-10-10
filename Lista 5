@@ -1,0 +1,39 @@
+Q 6-incompleta)
+#include <stdio.h>
+int main(){
+	int turmas,x,alunos,media1,media2,media3,media4,media5;
+	float notas;
+	media1 = 0,media2 = 0,media3 = 0,media4 =0,media5 = 0;	
+	for(turmas = 1;turmas <= 5;turmas++){a
+		printf("Digite a quantidade de alunos da turma %d: \n",turmas);
+		scanf("%d",&alunos);
+		printf("Digite a nota dos alunos: \n");
+		   for(x=0;x < alunos;x++){
+			   scanf("%f",&notas);
+			   while(notas < 0 && notas > 10){
+				   scanf("%f",&notas);}
+if (turmas ==1){
+	if (notas > 7);
+		media1++;}
+if (turmas ==2){
+	if (notas > 7);
+		media2++;}
+if (turmas ==3){
+	if (notas > 7);
+		media3++;}
+if (turmas ==4){
+	if (notas > 7);
+		media4++;}
+if (turmas ==5){
+	if (notas > 7);
+	media5++;}   
+			   
+}	
+	}
+	printf("%d aluno(s) tem media maior que 7 na turma 1\n",media1);
+	printf("%d alunos(s) tem media maior que 7 na turma 2\n",media2);
+	printf("%d aluno(s) tem media maior que 7 na turma 3\n",media3);
+	printf("%d aluno(s) tem media maior que 7 na turma 4\n",media4);
+	printf("%d aluno(s) tem media maior que 7 na turma 5\n",media5);
+return 0;
+}
