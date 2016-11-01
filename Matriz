@@ -1,0 +1,16 @@
+#include <stdio.h>
+#define L 3
+#define C 4
+int main(){
+    int i,j;
+    int mat[L][C];
+    for(j=0;j<L;j++){  
+    for(i=0;i<C;i++){
+            scanf("%d",&mat[j][i]);
+        }}
+        printf("MATRIZ (linha a linha ):\n");
+        for(j=0;j<L;j++){
+            printf("%d ",mat[j][i]);
+        printf("\n");
+        }    
+}
