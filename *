@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main (){
+    int quantidade,i,j;
+    printf("Qual o tamanho: ");
+    scanf("%d",&quantidade);
+    for (j =0;j<quantidade;j++){
+    for(i=0;i<quantidade;i++){
+    printf(" * ");
+        }}
+    printf("\n");
+  return 0;  
+    
+}
