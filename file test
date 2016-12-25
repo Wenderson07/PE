@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>//these things that i like to do, save everyday 
+
+
+
+void criando_arquivo(){
+	char nome[100];
+	FILE *pont_func;
+	pont_func = fopen("funcionario.bin","a");
+	if (pont_func == NULL)
+{
+    printf("ERRO! O arquivo não foi aberto!\n");
+}
+else
+   {
+     printf("O arquivo foi aberto com sucesso!");
+   }
+   printf("Nome :");
+   scanf(" %s",nome);
+   fprintf(pont_func,"%s",nome);  
+	fclose(pont_func);
+	
+	
+	
+}
+void main(){
+	criando_arquivo();
+	
+	
+	
+	
+	
+}
