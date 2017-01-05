@@ -1,0 +1,54 @@
+#include <stdio.h>
+#define F 3
+int i =1;
+typedef struct{
+	int dia,mes,ano;	
+}tdata;
+
+typedef struct{
+	char cpf[12];
+	char nome[100];
+	tdata dt_adm;
+	tdata dt_nasc;
+	int cargo;
+	int dept;
+}tFuncionario;
+tFuncionario func[F];
+int prox[F];
+int controle[2][11];
+
+
+int main(void)
+{
+
+	FILE *arq;
+	arq = fopen("funcionario.txt", "w");
+	if(arq == NULL)
+			printf("Erro, nao foi possivel abrir o arquivo\n");
+	else{
+		printf("Digite o nome: ");
+	   	scanf(" %s", func[i].nome);
+		fprintf(arq, "Funcionario: %s\n",func[i].nome);
+		
+		
+		printf("Qual a data de nascimento?: ");
+		scanf("%d %d %d", &func[i].dt_nasc.dia,&func[i].dt_nasc.mes,&func[i].dt_nasc.ano);
+		fprintf(arq, "Data de nascimento:%d %d %d\n",func[i].dt_nasc.dia,func[i].dt_nasc.mes,func[i].dt_nasc.ano);
+		
+		printf("Qual a data de admissão na empresa?: ");
+	   	scanf("%d %d %d", &func[i].dt_adm.dia,&func[i].dt_adm.mes,&func[i].dt_adm.ano);
+	   	fprintf(arq,"Data de admissao: %d %d %d\n",func[i].dt_adm.dia,func[i].dt_adm.mes,func[i].dt_adm.ano);
+	   	
+	   	printf("Qual o cargo?: ");
+		scanf(" %d", &func[i].cargo);
+		fprintf(arq,"Cargo: %d\n",func[i].cargo);
+ 	   
+		printf("Qual o departamento:");
+		scanf("%d",&func[i].dept);
+		fprintf(arq,"Departamento: %d\n",func[i].dept);	
+	   	
+	}
+	fclose(arq);
+	
+	return 0;
+}
