@@ -1,0 +1,199 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define F 4
+
+
+typedef struct{
+	int dia,mes,ano;	
+}tdata;
+typedef struct{
+	char cpf[12];
+	char nome[100];
+	tdata dt_adm;
+	tdata dt_nasc;
+	int cargo;
+	int dept;
+}tFuncionario;
+tFuncionario func[F];
+/*
+int ValidarData(int dia,int mes,int ano){	
+	if((dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12) && (ano >= 00 && ano <= 99)){
+		if(ano % 4 == 0 && (ano % 400 == 0 || ano % 100 != 0)){ 
+			if(dia == 29 && mes == 2){
+				return 1;
+			}
+		}
+        if(dia <= 28 && mes == 2){
+        	return 1;
+		}
+		if(dia >= 30 && mes == 2){
+			return 0;
+		}
+        if((dia <= 30) && (mes == 4 || mes == 6 || mes == 9 || mes == 11)){
+            return 1;
+		} 
+        if((dia <=31) && (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes ==8 || mes == 10 || mes == 12)){
+            return 1;
+		}
+        else{
+        	return 0;
+		}
+    }
+    else{
+    	return 0;
+	}
+}
+
+
+void cadastrar(){
+	static int i=0;
+	char cpf[12];
+	int a,j,x,y,z,resp=0,cont=1,cont2=0,resp2;
+	
+	while(resp!=2){
+		printf("Qual o cpf?: ");
+   		scanf(" %s", cpf);
+		for(j=0;j<F;j++){
+			a = strcmp(cpf,func[j].cpf);
+			if(a==0){
+				cont = 0;
+			}
+		}
+		if(cont==0){
+			printf("CPF %s ja cadastrado!\n", cpf);
+			cont = 1;
+			printf("---------------\n0 - Voltar ao Menu Funcionario\n1 - Digitar um novo cpf\n---------------\n");
+			scanf(" %d", &resp);
+			if(resp==0)
+				return;
+		}
+		else{
+			strcpy(func[i].cpf,cpf);
+			resp = 2;
+		}
+	}
+	printf("Qual o nome?: ");
+	scanf(" %s", func[i].nome);
+	printf("Qual a data de nascimento?: ");
+	scanf("%d %d %d", &func[i].dt_nasc.dia,&func[i].dt_nasc.mes,&func[i].dt_nasc.ano);
+	x = ValidarData(func[i].dt_nasc.dia,func[i].dt_nasc.mes,func[i].dt_nasc.ano);
+	while(x==0){
+		if(x==0){
+			printf("Data Invalida! Digite novamente: ");
+			scanf("%d %d %d", &func[i].dt_nasc.dia,&func[i].dt_nasc.mes,&func[i].dt_nasc.ano);
+			x = ValidarData(func[i].dt_nasc.dia,func[i].dt_nasc.mes,func[i].dt_nasc.ano);
+		}
+		else{
+			break;
+		}
+	}
+	printf("Qual a data de admissao na empresa?: ");
+	scanf("%d %d %d", &func[i].dt_adm.dia,&func[i].dt_adm.mes,&func[i].dt_adm.ano);
+	y = ValidarData(func[i].dt_adm.dia,func[i].dt_adm.mes,func[i].dt_adm.ano);
+	while(y==0){
+		if(y==0){
+			printf("Data Invalida! Digite novamente: ");
+			scanf("%d %d %d", &func[i].dt_adm.dia,&func[i].dt_adm.mes,&func[i].dt_adm.ano);
+			y = ValidarData(func[i].dt_adm.dia,func[i].dt_adm.mes,func[i].dt_adm.ano);
+		}
+		else{
+			break;
+		}
+	}
+	printf("Qual o cargo?: ");
+	scanf(" %d", &func[i].cargo);
+	while(resp2!=0){
+		printf("Qual o departamento?: ");
+	   	scanf(" %d", &func[i].dept);
+	   	cont2 = 0;
+		for(j=0;j<10;j++){
+			if(dep[j].cod == func[i].dept){
+				cont2++;
+			}
+		}
+		if(cont2 == 0){
+			printf("Departamento %d nao existe!\n", func[i].dept);
+			printf("Codigo e Nome dos Departamentos q existem: \n");
+			for(j=0;j<10;j++){
+				printf("Code: %d, Nome: %s\n", dep[j].cod,dep[j].nome);
+			}
+			printf("---------------\n0 - Para retornar ao Menu Funcionario\n1 - Digitar um novo codigo\n---------------\n");
+			scanf(" %d", &resp2);
+			if(resp2==0)
+				return;
+		}	   	
+		else{
+			z = func[i].dept - 1;
+			dep[z].quant++;
+			break;
+		}	   
+	}
+	printf("Funcionario cadastrado com sucesso!\n");
+	i++;
+
+	printf("%d\n",i);
+	printf("\n");
+}
+*/
+
+void cadastrar(){
+	static int i=0;
+	printf("%d",i);
+	printf("Qual o cpf?: ");
+   	scanf(" %s",func[i].cpf);
+	printf("Qual o nome?: ");
+	scanf(" %s",func[i].nome);
+	printf("Qual a data de nascimento?: ");
+	scanf("%d %d %d", &func[i].dt_nasc.dia,&func[i].dt_nasc.mes,&func[i].dt_nasc.ano);
+	printf("Qual a data de admissao na empresa?: ");
+	scanf("%d %d %d", &func[i].dt_adm.dia,&func[i].dt_adm.mes,&func[i].dt_adm.ano);
+	printf("Qual o cargo?: ");
+	scanf(" %d", &func[i].cargo);
+	printf("Qual o departamento?: ");
+	scanf(" %d", &func[i].dept);
+	i++;
+}
+
+int salvar_arquivos(){
+	FILE *arquivo;
+	int x;
+	arquivo =fopen("funcionario.bin","a");
+	if (arquivo == NULL){
+		printf("Erro ao abrir o arquivo");
+		return 0;
+	} 
+	for(int i =0;i <= F;i++){
+	fprintf(arquivo,"CPF: %s\n",func[i].cpf);
+	fprintf(arquivo,"NOME:%s\n",func[i].nome);
+	fprintf(arquivo,"DATA DE NASC:%d%d%d\n",func[i].dt_nasc);
+	fprintf(arquivo,"DATA DE ADM:%d%d%d\n",func[i].dt_adm);
+	fprintf(arquivo,"CARGO:%d\n",func[i].cargo);
+	fprintf(arquivo,"DEPT: %d\n",func[i].dept);
+	}
+}
+
+
+/*void ler_arquivos(){
+	   FILE *file;
+	   file = fopen("teste.txt","r");
+	   	   if(file == NULL){
+	   	   	printf("Arquivo nao foi aberto ou encontrado\n");
+	   	   	system("pause");
+	   	    return 0;
+			  }
+	   char frase[100];
+	   while(fgets(frase,100,file)!= NULL){
+		   printf("%s",frase);
+		   
+		   
+	   }
+	fclose(file);
+}
+
+*/
+int main(){
+	cadastrar();
+	salvar_arquivos();
+	return 0;
+}
